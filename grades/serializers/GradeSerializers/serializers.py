@@ -96,26 +96,26 @@ class GradeUpdateSerializer(ModelSerializer):
     @transaction.atomic
     def update(self, instance, validated_data):
         """Update a grade with nested target chemistries."""
-        tc_data = validated_data.pop("grade_tc", [])
+        tc_data = validated_data.pop("grade_tc", None)
         grade = super().update(instance, validated_data)
+        if tc_data:
+            TargetChemistry.objects.filter(grade=grade).delete()
 
-        TargetChemistry.objects.filter(grade=grade).delete()
+            for tc in tc_data:
+                element = tc.get("element")
+                min_rate = tc.get("min_rate", None)
+                max_rate = tc.get("max_rate", None)
 
-        for tc in tc_data:
-            element = tc.get("element")
-            min_rate = tc.get("min_rate", None)
-            max_rate = tc.get("max_rate", None)
+                relaxed_min, relaxed_max = calculate_tolerance(
+                    element.symbol, min_rate, max_rate
+                )
 
-            relaxed_min, relaxed_max = calculate_tolerance(
-                element.symbol, min_rate, max_rate
-            )
+                tc["grade"] = grade.pk
+                tc["element"] = element.pk
+                tc["relaxed_min_rate"] = relaxed_min
+                tc["relaxed_max_rate"] = relaxed_max
 
-            tc["grade"] = grade.pk
-            tc["element"] = element.pk
-            tc["relaxed_min_rate"] = relaxed_min
-            tc["relaxed_max_rate"] = relaxed_max
-
-            tc_ser = TargetChemistryCreateSerializer(data=tc)
-            tc_ser.is_valid(raise_exception=True)
-            tc_ser.save()
+                tc_ser = TargetChemistryCreateSerializer(data=tc)
+                tc_ser.is_valid(raise_exception=True)
+                tc_ser.save()
         return grade
