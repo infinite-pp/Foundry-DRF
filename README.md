@@ -42,7 +42,7 @@
 
 # Test 2:
 
-## Create element with non alphabetic name and symbol
+## Create element with lowercase symbol
 
 **Api url:** 
 
@@ -120,6 +120,43 @@
 
 # Test 4:
 
+## Update element with duplicate symbol
+
+**Api url:** 
+
+ - http://127.0.0.1:8000/api/elements/1/
+
+**Method:**
+
+ - PATCH
+
+**Payload:**
+
+```
+{
+    "name":"Carbon",
+    "symbol":"Cb"
+}
+```
+
+**Response:** 
+
+```
+{
+    "id": 1,
+    "name": "Carbon",
+    "symbol": "Cb"
+}
+```
+
+**Status Code:**
+
+ - 400
+
+------------------------------------------------------------------------------
+
+# Test 5:
+
 ## Create grade with proper data
 
 **Api url:** 
@@ -171,9 +208,9 @@
 
 -----------------------------------------------------------------------------
 
-# Test 5:
+# Test 6:
 
-## Create grade with missing data
+## Create grade with missing name
 
 **Api url:** 
 
@@ -215,7 +252,7 @@
 
 -----------------------------------------------------------------------
 
-# Test 6:
+# Test 7:
 
 ## Create grade with non alphanum code
 
@@ -261,7 +298,7 @@
 
 -----------------------------------------------------------------------
 
-# Test 7:
+# Test 8:
 
 ## Create grade with missing grade TC
 
@@ -278,8 +315,7 @@
 ```
 {
     "name": "Grade 3",
-    "code": "G3",
-    "grade_tc": []
+    "code": "G3"
 }
 ```
 
@@ -287,20 +323,19 @@
 
 ```
 {
-    "id": 3,
-    "name": "Grade 3",
-    "code": "G3",
-    "grade_tc": []
+    "grade_tc": [
+        "This field is required."
+    ]
 }
 ```
 
 **Status Code:**
 
- - 201
+ - 400
 
 -----------------------------------------------------------------------
 
-# Test 8:
+# Test 9:
 
 ## Create grade with duplicate code
 
@@ -346,7 +381,7 @@
 
 -----------------------------------------------------------------------
 
-# Test 9:
+# Test 10:
 
 ## Create grade with duplicate TC elements
 
@@ -363,12 +398,22 @@
 ```
 {
     "name": "Grade 2",
-    "code": "G4",
+    "code": "G10",
     "grade_tc": [
+        {
+            "element": 1,
+            "min_rate": 4,
+            "max_rate": 5
+        },
+        {
+            "element": 1,
+            "min_rate": 3,
+            "max_rate": 5
+        },
         {
             "element": 2,
             "min_rate": 4,
-            "max_rate": 5
+            "max_rate": 6
         }
     ]
 }
@@ -378,16 +423,9 @@
 
 ```
 {
-    "id": 4,
-    "name": "Grade 2",
-    "code": "G4",
-    "grade_tc": [
+    "non_field_errors": [
         {
-            "element": 2,
-            "min_rate": "4.000",
-            "max_rate": "5.000",
-            "relaxed_min_rate": "3.960",
-            "relaxed_max_rate": "5.050"
+            "grade_tc": "Duplicate element Carbon - C"
         }
     ]
 }
@@ -395,13 +433,13 @@
 
 **Status Code:**
 
- - 201
+ - 400
 
 -----------------------------------------------------------------------
 
-# Test 10:
+# Test 11:
 
-## Create grade with min_rate >= max_rate
+## Create grade with min > max
 
 **Api url:** 
 
@@ -443,53 +481,6 @@
 
  - 400
 
------------------------------------------------------------------------
-
-# Test 11:
-
-## Create grade with min_rate = alphabet
-
-**Api url:** 
-
- - http://127.0.0.1:8000/api/grades/
-
-**Method:**
-
- - POST
-
-**Payload:**
-
-```
-{
-    "name": "Grade 2",
-    "code": "G5",
-    "grade_tc": [
-        {
-            "element": 2,
-            "min_rate": "alphabet",
-            "max_rate": 5
-        }
-    ]
-}
-```
-
-**Response:** 
-
-```
-{
-    "grade_tc": [
-        {
-            "min_rate": [
-                "A valid number is required."
-            ]
-        }
-    ]
-}
-```
-
-**Status Code:**
-
- - 400
 
 -----------------------------------------------------------------------
 
