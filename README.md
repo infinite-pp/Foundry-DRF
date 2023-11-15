@@ -1,6 +1,6 @@
 # Test 1:
 
- - Create element with non alphabetic name and symbol
+## Create element with non alphabetic name and symbol
 
 **Api url:** 
 
@@ -42,7 +42,7 @@
 
 # Test 2:
 
- - Create element with non alphabetic name and symbol
+## Create element with non alphabetic name and symbol
 
 **Api url:** 
 
@@ -81,7 +81,7 @@
 
 # Test 3:
 
- - Create element with duplicate symbol
+## Create element with duplicate symbol
 
 **Api url:** 
 
@@ -120,7 +120,7 @@
 
 # Test 4:
 
- - Create grade with proper data
+## Create grade with proper data
 
 **Api url:** 
 
@@ -173,7 +173,7 @@
 
 # Test 5:
 
- - Create grade with missing data
+## Create grade with missing data
 
 **Api url:** 
 
@@ -217,7 +217,7 @@
 
 # Test 6:
 
- - Create grade with non alphanum code
+## Create grade with non alphanum code
 
 **Api url:** 
 
@@ -263,7 +263,7 @@
 
 # Test 7:
 
- - Create grade with missing grade TC
+## Create grade with missing grade TC
 
 **Api url:** 
 
@@ -302,7 +302,7 @@
 
 # Test 8:
 
- - Create grade with duplicate code
+## Create grade with duplicate code
 
 **Api url:** 
 
@@ -348,7 +348,7 @@
 
 # Test 9:
 
- - Create grade with duplicate TC elements
+## Create grade with duplicate TC elements
 
 **Api url:** 
 
@@ -401,7 +401,7 @@
 
 # Test 10:
 
- - Create grade with min_rate >= max_rate
+## Create grade with min_rate >= max_rate
 
 **Api url:** 
 
@@ -447,7 +447,7 @@
 
 # Test 11:
 
- - Create grade with min_rate = alphabet
+## Create grade with min_rate = alphabet
 
 **Api url:** 
 
@@ -495,7 +495,7 @@
 
 # Test 12:
 
- - Create grade with min_rate = alphabet
+## Create grade with min_rate = alphabet
 
 **Api url:** 
 
@@ -543,7 +543,7 @@
 
 # Test 13:
 
- - Update grade without sending TC
+## Update grade without sending TC
 
 **Api url:** 
 
@@ -582,7 +582,7 @@
 
 # Test 14:
 
- - Update grade with changed TC
+## Update grade with changed TC
 
 **Api url:** 
 
@@ -635,7 +635,7 @@
 
 # Test 15:
 
- - Upgrade grade with duplicate code
+## Upgrade grade with duplicate code
 
 **Api url:** 
 
