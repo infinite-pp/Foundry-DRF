@@ -549,8 +549,7 @@
 ```
 {
     "name": "Grade 1",
-    "code": "G1",
-    "grade_tc": []
+    "code": "G1"
 }
 ```
 
