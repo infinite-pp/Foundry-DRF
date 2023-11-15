@@ -15,7 +15,7 @@
 ```
 {
     "name":"Carbon1",
-    "symbol":"ca1"
+    "symbol":"c"
 }
 ```
 
@@ -134,8 +134,8 @@
 
 ```
 {
-    "name":"Carbon",
-    "symbol":"Cb"
+    "name":"Iron",
+    "symbol":"C"
 }
 ```
 
@@ -144,8 +144,8 @@
 ```
 {
     "id": 1,
-    "name": "Carbon",
-    "symbol": "Cb"
+    "name": "Iron",
+    "symbol": "C"
 }
 ```
 
