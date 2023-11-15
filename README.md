@@ -536,55 +536,6 @@
 
 ## Update grade without sending TC
 
-**Api url:** 
-
- - http://127.0.0.1:8000/api/grades/7/
-
-**Method:**
-
- - PUT
-
-**Payload:**
-
-```
-{
-    "name": "Grade 10",
-    "code": "G10",
-    "grade_tc": [
-        {
-            "element": 2,
-            "min_rate": "2.000",
-            "max_rate": "5.000",
-            "relaxed_min_rate": "1.980",
-            "relaxed_max_rate": "5.050"
-        }
-    ]
-}
-```
-
-**Response:** 
-
-```
-{
-    "id": 7,
-    "name": "Grade 10",
-    "code": "G10",
-    "grade_tc": [
-        {
-            "element": 2,
-            "min_rate": "2.000",
-            "max_rate": "5.000",
-            "relaxed_min_rate": "1.980",
-            "relaxed_max_rate": "5.050"
-        }
-    ]
-}
-```
-
-**Status Code:**
-
- - 200
-
 **Method:**
 
  - PATCH
