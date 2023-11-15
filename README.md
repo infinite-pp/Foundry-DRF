@@ -15,7 +15,7 @@
 ```
 {
     "name":"Carbon1",
-    "symbol":"c"
+    "symbol":"ca1"
 }
 ```
 
